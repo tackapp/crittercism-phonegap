@@ -591,9 +591,9 @@ window.onerror = function(msg, url, line) {
     stack.shift();
     var stackAsString = stack.join("\r\n");
     if (logUnhandledExceptionAsCrash) {
-        cordova.exec(success, fail, 'CDVCrittercism', 'crittercismLogUnhandledException', [msg, stackAsString]);
-    } else {
         cordova.exec(success, fail, 'CDVCrittercism', 'crittercismLogHandledException', ["Crash", msg, stackAsString]);
+    } else {
+        cordova.exec(success, fail, 'CDVCrittercism', 'crittercismLogUnhandledException', [msg, stackAsString]);
     }
 };
 
