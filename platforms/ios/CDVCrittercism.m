@@ -58,7 +58,7 @@ static NSString *const CRJavascriptXMLHttpRequest = @"JavascriptXMLHttpRequest";
     stack = [self deleteStackFillerInformation:stack];
 
     const char *cName = "Error";
-    const char *cMessage= [message UTF8String];
+    const char *cMessage= [message isKindOfClass:[NSString class]] ? [message UTF8String] :"Empty...";//[message UTF8String];
     const char *cStack= [stack UTF8String];
 
     Crittercism_LogUnhandledException(cName, cMessage, cStack, 2);
